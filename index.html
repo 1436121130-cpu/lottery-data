@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>彩票模拟系统 V7</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- 登录注册页 -->
+<div class="auth-screen" id="authScreen">
+    <div class="auth-box">
+        <div class="auth-logo">🎱</div>
+        <h1 class="auth-title">彩票模拟系统</h1>
+        <p class="auth-sub">☁️ 云端数据 · 多人联网</p>
+        
+        <div class="auth-tabs">
+            <button class="auth-tab active" id="tabLogin" onclick="switchAuth('login')">登录</button>
+            <button class="auth-tab" id="tabReg" onclick="switchAuth('register')">注册</button>
+        </div>
+
+        <div class="auth-form" id="loginForm">
+            <input type="text" id="loginUser" placeholder="👤 用户名">
+            <input type="password" id="loginPwd" placeholder="🔒 密码" onkeydown="if(event.key==='Enter')doLogin()">
+            <button class="auth-btn" id="loginBtn" onclick="doLogin()">🔓 登录</button>
+            <div class="auth-err" id="loginErr"></div>
+        </div>
+
+        <div class="auth-form" id="registerForm" style="display:none;">
+            <input type="text" id="regUser" placeholder="👤 用户名（3-12位）">
+            <input type="password" id="regPwd" placeholder="🔒 密码（至少4位）">
+            <input type="password" id="regPwd2" placeholder="🔒 确认密码" onkeydown="if(event.key==='Enter')doRegister()">
+            <button class="auth-btn" id="regBtn" onclick="doRegister()">📝 注册</button>
+            <div class="auth-err" id="regErr"></div>
+        </div>
+
+        <div class="auth-footer">
+            <span id="serverStatus">🔄 检查连接...</span>
+        </div>
+    </div>
+</div>
+
+<!-- 主应用（隐藏） -->
+<div class="app-container" id="appContainer" style="display:none;">
+    <!-- 动态生成，防止源码泄露 -->
+</div>
+
+<!-- 加载混淆后的脚本 -->
+<script src="main.min.js"></script>
+</body>
+</html>
